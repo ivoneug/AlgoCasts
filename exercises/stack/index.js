@@ -10,6 +10,49 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+class Stack {
+    constructor() {
+        this.top = null;
+    }
+
+    push(value) {
+        this.top = {
+            value,
+            prev: this.top
+        };
+    }
+
+     pop() {
+         const item = this.top;
+
+         if (item) {
+             this.top = item.prev;
+         }
+
+         return item.value;
+     }
+
+     peek() {
+         return this.top ? this.top.value : undefined;
+     }
+}
+
+class Stack_array {
+    constructor() {
+        this.data = [];
+    }
+
+    push(value) {
+        this.data.push(value);
+    }
+
+     pop() {
+         return this.data.pop();
+     }
+
+     peek() {
+         return this.data[this.data.length - 1];
+     }
+}
 
 module.exports = Stack;
